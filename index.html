@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+</div>
+</div>
+<form onsubmit="handleSubmit(event)" aria-labelledby="contactHeading">
+<div class="grid-2">
+<div>
+<label for="name">Name</label>
+<input id="name" name="name" placeholder="Your name" required />
+</div>
+<div>
+<label for="email">Email</label>
+<input id="email" name="email" type="email" placeholder="you@example.com" required />
+</div>
+</div>
+<div>
+<label for="topic">Project Type</label>
+<select id="topic" name="topic" required>
+<option value="" disabled selected>Select one</option>
+<option>Website redesign</option>
+<option>New product launch</option>
+<option>Portfolio</option>
+<option>Other</option>
+</select>
+</div>
+<div>
+<label for="message">Message</label>
+<textarea id="message" name="message" rows="5" placeholder="What are you building?" required></textarea>
+</div>
+<button class="btn" type="submit">Send message</button>
+<p id="formNote" class="muted mt-2" role="status" aria-live="polite"></p>
+</form>
+</div>
+</section>
+</main>
+
+
+<footer>
+<div class="container center">
+<div class="muted">© <span id="year"></span> YourBrand. All rights reserved.</div>
+</div>
+</footer>
+
+
+<script>
+// Mobile menu toggle
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+function toggleMenu(){
+const open = mobileMenu.style.display === 'block';
+mobileMenu.style.display = open ? 'none' : 'block';
+menuBtn.setAttribute('aria-expanded', String(!open));
+}
+menuBtn.addEventListener('click', toggleMenu);
+
+
+// Year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+
+// Contact form (demo only)
+function handleSubmit(e){
+e.preventDefault();
+const data = Object.fromEntries(new FormData(e.target).entries());
+console.log('Form submission (demo):', data);
+const note = document.getElementById('formNote');
+note.textContent = 'Thanks! This demo form doesn\'t send yet, but your data was captured in the console.';
+}
+</script>
+</body>
+</html>
